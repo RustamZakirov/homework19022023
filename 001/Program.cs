@@ -33,18 +33,15 @@ void ChangePlace(int[,] matrix)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            for (int k = 0; k < matrix.GetLength(1); k++)
+            int maxposition = j;
+            for (int l = j; l < matrix.GetLength(1) - 1; l++)
             {
-                for (int a = 0; a < matrix.GetLength(1) - 1; a++)
-                {
-                    if (matrix[i, a] < matrix[i, a + 1])
-                    {
-                        int temp = matrix[i, a];
-                        matrix[i, a] = matrix[i, a + 1];
-                        matrix[i, a + 1] = temp;
-                    }
-                }
+                if (matrix[i, maxposition] <  matrix[i, l + 1])
+                    maxposition = l + 1;
             }
+            int temp = matrix[i, j];
+            matrix[i, j] = matrix[i, maxposition];
+            matrix[i, maxposition] = temp;
         }
     }
 }
