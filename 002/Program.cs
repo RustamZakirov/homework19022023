@@ -50,13 +50,9 @@ void findsumm(int[,] matrix)
 Console.Clear();
 Console.Write("Введите размер массива: ");
 int[] size = Console.ReadLine().Split().Select(x => int.Parse(x)).ToArray();
-if (size[0] != size[1])
-    Console.WriteLine("Матрица должна быть прямоугольной");
-else
-{
 int[,] matrix = new int[size[0], size[1]];
 InputMatrix(matrix);
 PrintMatrix(matrix);
 Console.WriteLine();
 findsumm(matrix);
-}
+
